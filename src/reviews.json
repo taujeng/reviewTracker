@@ -1,4 +1,3 @@
-const reviews = 
 [
   {
     "id": "5d707203b65083001e956f0a",
@@ -201,5 +200,3 @@ const reviews =
     "content": "Labore eiusmod esse reprehenderit ea et irure ipsum aliqua sit amet exercitation laboris ut est. Ex veniam id duis labore pariatur voluptate ipsum sunt laboris. Sit elit ipsum consectetur elit ipsum exercitation eu ullamco. Consequat ea ea sunt aliquip laboris excepteur consectetur duis. Pariatur ipsum laborum fugiat labore eiusmod laboris Lorem exercitation elit tempor nisi dolor eiusmod. Proident consequat eu ullamco amet quis sint velit nostrud.\r\n"
   }
 ]
-
-export default reviews

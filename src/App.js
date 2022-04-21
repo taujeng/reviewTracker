@@ -1,11 +1,11 @@
 import Header from './components/Header';
-import Reviews from './components/Reviews';
+import Body from './components/Body';
 
 function App() {
   return (
     <div className="App">
       <Header />
-      <Reviews />
+      <Body />
     </div>
   );
 }
