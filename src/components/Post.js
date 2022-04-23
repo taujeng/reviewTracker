@@ -40,7 +40,7 @@ const Post = ({ details }) => {
   }, []);
 
   return (
-    <Link className="post-container" to={'/comments/' + details.id}>
+    <Link className="post-container" to={'/comments'} state={{from:{details, updateDate}}} >
       <div className="post-title post">{details.place}</div>
       <div className="post-rating post">
         <StarRating score={details.rating} />
