@@ -5,6 +5,7 @@
   margin: 0;
   padding: 0;
   font-family: 'Roboto', sans-serif;
+  
 }
 
   /*--- Header Section ---*/
@@ -19,7 +20,7 @@
 }
 
 #logo {
-  color: #FBFCFD;
+  color: #f3feff;
   text-decoration: none;
   font-weight: 700;
   font-size: 24px;
@@ -29,11 +30,10 @@
   /*--- Review Section ---*/
 .review-container {
   width: 100%;
-  height: calc(100vh - 60px);
-  background: #fdfdfd;
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
+  background-color: #8d95a2;
 }  
 
   /*--- Posts Section ---*/
@@ -49,6 +49,7 @@
   flex-direction: column;
   text-decoration: none;
   color: black;
+  background-color: #fbfcfe;
 }
 
 .post-container:visited {
@@ -105,4 +106,27 @@
   border: 1px black solid;
   width: 100%;
   margin-bottom: 80px;
+  padding: 0 100px;
+  height: 250px;
+}
+.comments-post-title {
+  font-weight: 700;
+  font-size: 24px;
+}
+.comments-post-body {
+  font-size: 18px;
+  display: -webkit-box;
+  max-width: 100%;
+  -webkit-line-clamp: 5;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.comments-footer {
+  display: flex;
+  font-size: 14px;
+  margin-top: auto;
+}
+
+.comments-footer-name {
+  padding-right: 20px;
 }
