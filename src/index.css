@@ -18,8 +18,11 @@
   padding: 0 80px;
 }
 
-.header h1 {
+#logo {
   color: #FBFCFD;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 24px;
 }
 
 
@@ -44,16 +47,48 @@
   border-radius: 10px;
   display: flex;
   flex-direction: column;
+  text-decoration: none;
+  color: black;
+}
+
+.post-container:visited {
+  color: #0047AB;
+}
+
+.post-title {
+  font-weight: 700;
+  font-size: 24px;
 }
 
 .post {
-  padding: 20px 0 0 20px;
+  padding: 12px 0 0 20px;
+}
 
+.post-body {
+  /* Deal with overflow */
+  font-size: 18px;
+  display: -webkit-box;
+  max-width: 270px;
+  -webkit-line-clamp: 5;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  /* display: inline-block;
+  width: 275px;
+  height: 115px;
+  overflow: hidden;
+  white-space: normal;
+  text-overflow: ellipsis; */
 }
 
 .post-footer {
+  font-size: 14px;
   margin-top: auto;
   display: flex;
   justify-content: space-evenly;
   padding-bottom: 5px;
+}
+
+  /*--- Star Section ---*/
+.star-inner {
+  color: #ffc107;
 }
