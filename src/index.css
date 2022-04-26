@@ -52,8 +52,12 @@
   background-color: #fbfcfe;
 }
 
-.post-container:visited {
+/* .post-container:visited {
   color: #0047AB;
+} */
+
+.post {
+  padding: 20px 0 0 20px;
 }
 
 .post-title {
@@ -61,8 +65,8 @@
   font-size: 24px;
 }
 
-.post {
-  padding: 12px 0 0 20px;
+.post-rating {
+  padding-top: 0;
 }
 
 .post-body {
@@ -70,23 +74,21 @@
   font-size: 18px;
   display: -webkit-box;
   max-width: 270px;
-  -webkit-line-clamp: 5;
+  -webkit-line-clamp: 4;
   -webkit-box-orient: vertical;
   overflow: hidden;
-  /* display: inline-block;
-  width: 275px;
-  height: 115px;
-  overflow: hidden;
-  white-space: normal;
-  text-overflow: ellipsis; */
 }
 
 .post-footer {
   font-size: 14px;
   margin-top: auto;
   display: flex;
-  justify-content: space-evenly;
-  padding-bottom: 5px;
+  justify-content: space-between;
+  padding: 0 20px 20px 20px;
+}
+
+.post-footer-date {
+  color: #8D95A3;
 }
 
   /*--- Star Section ---*/
@@ -102,22 +104,31 @@
   padding: 40px 80px 0;
 }
 
+
+      /*--- Review Box  ---*/
 .comments-box {
   border: 1px black solid;
   width: 100%;
   margin-bottom: 80px;
-  padding: 0 100px;
+  padding: 20px 100px;
   height: 250px;
 }
+
+.comments-review {
+  display: flex;
+  flex-direction: column;
+}
+
 .comments-post-title {
   font-weight: 700;
   font-size: 24px;
 }
 .comments-post-body {
+  padding-top: 20px;
   font-size: 18px;
   display: -webkit-box;
   max-width: 100%;
-  -webkit-line-clamp: 5;
+  -webkit-line-clamp: 4;
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
@@ -129,4 +140,44 @@
 
 .comments-footer-name {
   padding-right: 20px;
+}
+
+.comments-footer-date {
+  color: #8D95A3;
+}
+
+      /*--- Response Box  ---*/
+.comments-response-container{
+    height: 100%;
+    min-height: 150px;
+    display: flex;
+    flex-direction: column;
+}
+
+.response-top {
+  display: flex;
+  justify-content: space-between;
+}
+
+.response-arrow {
+  padding-right: 20px;
+  position: absolute;
+  transform: translate(-60px, -5px);
+  color: #097AE6;
+}
+
+.response-edit {
+  color: #097AE6;
+  transform: translateY(-7px);
+}
+
+.response-footer {
+  margin-top: auto;
+  display: flex;
+  font-size: 14px;
+}
+
+.response-footer-date {
+  padding-left: 20px;
+  color: #8D95A3;
 }
