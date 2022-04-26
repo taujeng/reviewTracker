@@ -7,10 +7,6 @@ const Body = () => {
   const reviewData = require('../reviews.json')
 
 
-
-
-  
-
   return (
     <section className='review-container'>
       { reviewData.map((item, index) => 
