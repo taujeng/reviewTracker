@@ -1,13 +1,18 @@
-import React from 'react';
+import React, { useState } from 'react';
 import StarRating from './StarRating';
 import { useLocation } from 'react-router-dom';
-import { Reply, MoreHoriz } from '@mui/icons-material';
+import { Reply, MoreHoriz, RefreshSharp } from '@mui/icons-material';
+import { Link } from 'react-router-dom';
+import { render } from '@testing-library/react';
 
-const Comments = () => {
+const Comments = ({ response }) => {
   // Data passed in
   const location = useLocation();
   const { from } = location.state;
   // from.details = data, from.updateDate = updated Date from data
+
+  // Individual Post's ID
+  const postId = from.details.id;
 
   // Review commentator/user info
   const USER_NAME = 'Tau Jeng';
@@ -16,6 +21,76 @@ const Comments = () => {
   const month = String(today.getMonth() + 1).padStart(2, '0');
   const day = String(today.getDate()).padStart(2, '0');
   const todayDate = month + '/' + day + '/' + year;
+
+  // Response Functionality:
+  // // If comment exists, set value as comment.
+  const existingComment = from.details.response
+    ? from.details.response
+    : 'Leave a comment here...';
+  const [responseState, setResponseState] = useState({
+    value: existingComment,
+    isInEditMode: false,
+    currentValue: '',
+  });
+
+  const changeEditMode = () => {
+    setResponseState((prevValue) => {
+      return {
+        ...prevValue,
+        isInEditMode: !responseState.isInEditMode,
+      };
+    });
+  };
+
+  const handleChange = (event) => {
+    let currentNote = event.target.value;
+    setResponseState((prevValue) => {
+      return {
+        ...prevValue,
+        currentValue: currentNote,
+      };
+    });
+  };
+
+  const updateResponseValue = () => {
+    setResponseState((prevValue) => {
+      return {
+        ...prevValue,
+        isInEditMode: false,
+        value: responseState.currentValue,
+      };
+    });
+    // Send Newest Comment up to App.js where it can be added to our data
+    response(responseState.currentValue, postId);
+  };
+
+  const renderEditView = () => {
+    return (
+      <div className="response-edit-view">
+        <input
+          type="text"
+          value={responseState.currentValue}
+          placeholder="Leave a comment"
+          onChange={handleChange}
+          rows="1"
+        />
+        <button className="response-edit-button" onClick={updateResponseValue}>
+          Save
+        </button>
+        <button className="response-edit-button" onClick={changeEditMode}>
+          Exit
+        </button>
+      </div>
+    );
+  };
+
+  const renderDefaultView = () => {
+    return (
+      <div className="response-default-view" onDoubleClick={changeEditMode}>
+        {responseState.value}
+      </div>
+    );
+  };
 
   return (
     <div className="comments-container">
@@ -36,13 +111,19 @@ const Comments = () => {
       <div className="comments-box comments-response-container">
         <div className="response-top">
           <div className="response-comments">
-            <div className="response-arrow">
+            <Link to="/" className="response-arrow">
               <Reply />
-            </div>
-            Glad you Liked It!
+            </Link>
+            {responseState.isInEditMode
+              ? renderEditView()
+              : renderDefaultView()}
           </div>
           <div className="response-edit">
-            <MoreHoriz fontSize="large" />
+            <MoreHoriz
+              onClick={changeEditMode}
+              id="response-triple-dot"
+              fontSize="large"
+            />
           </div>
         </div>
         <div className="response-footer">

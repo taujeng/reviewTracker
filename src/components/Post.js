@@ -1,13 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import StarRating from './StarRating';
 import { Link } from 'react-router-dom';
+import { Forum } from '@mui/icons-material/';
 
 const Post = ({ details }) => {
-  // function newDate(details) {
-  //   const oldDate = details['published_at'].slice(4, 15);
-  //   return oldDate;
-  // }
-
   // Reformat Date
   // date we receive: "Tue Feb 26 2008 20:52:20 GMT-0600 (Central Standard Time)"
   // date we want: 02/24/1986
@@ -27,8 +23,6 @@ const Post = ({ details }) => {
     Dec: '12',
   };
 
-
-
   useEffect(() => {
     const oldDate = details['published_at'].slice(4, 15).replaceAll(' ', '/');
     for (const [key, value] of Object.entries(months)) {
@@ -40,16 +34,27 @@ const Post = ({ details }) => {
   }, []);
 
   return (
-    <Link className="post-container" to={'/comments'} state={{from:{details, updateDate}}} >
+    <Link
+      className="post-container"
+      to={'/comments'}
+      state={{ from: { details, updateDate } }}
+    >
       <div className="post-title post">{details.place}</div>
       <div className="post-rating post">
         <StarRating score={details.rating} />
       </div>
       <div className="post-body post">{details.content}</div>
       <div className="post-footer">
-        <div className="post-footer-name">{details.author}</div>
-        <div className="post-footer-date">{updateDate}</div>
-        <div className="post-footer-comments">ICON</div>
+        <div className="post-footer-set">
+          <div className="post-footer-name">{details.author}</div>
+          <div className="post-footer-date">{updateDate}</div>
+        </div>
+        {/* If there is a response to the review, display Icon */}
+        {details.response ? (
+          <div className="post-footer-comments">
+            <Forum className="forum-icon" fontSize="small" />
+          </div>
+        ) : null}
       </div>
     </Link>
   );
