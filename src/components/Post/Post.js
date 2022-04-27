@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import StarRating from './StarRating';
+import StarRating from '../StarRating/StarRating';
 import { Link } from 'react-router-dom';
 import { Forum } from '@mui/icons-material/';
+import "./post.css"
 
 const Post = ({ details }) => {
   // Reformat Date

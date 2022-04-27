@@ -5,6 +5,7 @@ import {
   StarHalfRounded,
 } from '@mui/icons-material';
 import { v4 as uuidv4 } from 'uuid';
+import './starRating.css'
 
 const StarRating = ({ score }) => {
   const [stars, setStars] = useState([]);

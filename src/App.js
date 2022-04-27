@@ -1,6 +1,6 @@
-import Header from './components/Header';
-import Body from './components/Body';
-import Comments from './components/Comments'
+import Header from './components/Header/Header';
+import Body from './components/Body/Body';
+import Comments from './components/Comments/Comments'
 import { Routes, Route, Link } from "react-router-dom";
 import { useState } from 'react'
 

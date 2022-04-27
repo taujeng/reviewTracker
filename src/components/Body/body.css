@@ -1,0 +1,12 @@
+/*--- Review Section ---*/
+.review-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  background-color: #8d95a2;
+}  
+  
+  
+  
+  
