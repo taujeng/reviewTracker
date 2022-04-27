@@ -1,7 +1,15 @@
-Libraries Installed:
+# Review Everything
 
-- npm install react-router-dom@6
--
+Review Everything is a React project that renders reviews left by customers into readable posts. The user is also able to add/edit replies to each review.
 
-- set stars as a useState, and push stars into that list, and render that.
-- everytime setUseState is called, it rerenders everything, which is why you might want to throw it into a useEffect
+# To Run
+
+```bash
+npm start
+```
+
+# Libraries/Packages Used:
+
+- React Router
+- uuid
+- React Material UI Icons
