@@ -14,7 +14,7 @@ const Comments = ({ response }) => {
   // Individual Post's ID
   const postId = from.details.id;
 
-  // Review commentator/user info
+  // Review commentator/user info + current date
   const USER_NAME = 'Tau Jeng';
   const today = new Date();
   const year = today.getFullYear();
@@ -23,16 +23,19 @@ const Comments = ({ response }) => {
   const todayDate = month + '/' + day + '/' + year;
 
   // Response Functionality:
-  // // If comment exists, set value as comment.
+  // // If comment already exists, set value as comment.
   const existingComment = from.details.response
     ? from.details.response
     : 'Leave a comment here...';
+  // value = What is displayed in default view mode
+  // currentValue = What the user currently has entered in edit mode
   const [responseState, setResponseState] = useState({
     value: existingComment,
     isInEditMode: false,
     currentValue: '',
   });
 
+  // Exit Button/ Toggle Between Edit and Default View Mode. 
   const changeEditMode = () => {
     setResponseState((prevValue) => {
       return {
@@ -42,6 +45,7 @@ const Comments = ({ response }) => {
     });
   };
 
+  // When User is typing in Edit Mode, update currentValue
   const handleChange = (event) => {
     let currentNote = event.target.value;
     setResponseState((prevValue) => {
@@ -52,6 +56,7 @@ const Comments = ({ response }) => {
     });
   };
 
+  // Save Button. Saves user's input 
   const updateResponseValue = () => {
     setResponseState((prevValue) => {
       return {
@@ -60,10 +65,11 @@ const Comments = ({ response }) => {
         value: responseState.currentValue,
       };
     });
-    // Send Newest Comment up to App.js where it can be added to our data
+    // Send Newest Comment and the post's ID up to App.js where it can be added to companyData
     response(responseState.currentValue, postId);
   };
 
+  // Edit View, with a Save and Exit Button
   const renderEditView = () => {
     return (
       <div className="response-edit-view">
@@ -84,6 +90,7 @@ const Comments = ({ response }) => {
     );
   };
 
+  // Default View
   const renderDefaultView = () => {
     return (
       <div className="response-default-view" onDoubleClick={changeEditMode}>

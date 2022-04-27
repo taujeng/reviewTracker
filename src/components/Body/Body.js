@@ -7,7 +7,7 @@ const Body = ({ data }) => {
 
   return (
     <section className='review-container'>
-      { data.map((item, index) => 
+      {data.map((item, index) => 
         (<Post key={index} details={item} />
       ))}
     </section>

@@ -5,9 +5,11 @@ import { Forum } from '@mui/icons-material/';
 import "./post.css"
 
 const Post = ({ details }) => {
+
+
   // Reformat Date
-  // date we receive: "Tue Feb 26 2008 20:52:20 GMT-0600 (Central Standard Time)"
-  // date we want: 02/24/1986
+  // date received: "Tue Feb 26 2008 20:52:20 GMT-0600 (Central Standard Time)"
+  // date requirement: 02/24/1986
   const [updateDate, setUpdateDate] = useState(details.published_at);
   const months = {
     Jan: '01',
@@ -40,11 +42,14 @@ const Post = ({ details }) => {
       to={'/comments'}
       state={{ from: { details, updateDate } }}
     >
+      {/* Post Header */}
       <div className="post-title post">{details.place}</div>
       <div className="post-rating post">
         <StarRating score={details.rating} />
       </div>
+      {/* Post Content */}
       <div className="post-body post">{details.content}</div>
+      {/* Post Footer */}
       <div className="post-footer">
         <div className="post-footer-set">
           <div className="post-footer-name">{details.author}</div>

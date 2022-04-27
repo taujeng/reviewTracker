@@ -6,26 +6,12 @@ import { useState } from 'react'
 
 function App() {
 
+  // Take JSON data and transform it into JS object. Store in state
   const reviewData = require('./reviews.json')
   const [companyData, setCompanyData] = useState(reviewData)
 
+  // After saving a comment, add the comment to the appropriate entry in the stored data
   const newResponse = (response, ID) => {
-    // console.log(response);
-    // console.log(ID)
-
-    // setCompanyData(companyData => {
-    //   return companyData.forEach((item) => {
-    //   if (item.id === ID) {
-    //     item.response = response
-    //   }
-    // })});
-
-    // companyData.forEach((item)=> {
-    //   if (item.id === ID) {
-    //     console.log('okies')
-    
-    //   }
-    // })
     const newList = []
     for (let item of companyData) {
       if (item.id === ID) {
