@@ -110,7 +110,7 @@ const Comments = ({ response }) => {
         <div className="comments-post-body">{from.details.content}</div>
         <div className="comments-footer">
           <div className="comments-footer-name">{from.details.author}</div>
-          <div className="comments-footer-date">{from.updateDate}</div>
+          <div className="comments-footer-date">{from.details['new_date']}</div>
         </div>
       </div>
 
