@@ -11,8 +11,6 @@ function App() {
   const [companyData, setCompanyData] = useState(reviewData)
 
   // Update companyData with formatted dates
-  console.log( typeof companyData, companyData);
-
   const months = {
     Jan: '01',
     Feb: '02',
@@ -49,7 +47,7 @@ function App() {
     }
   })
 
-  console.log(companyData)
+
 
 
 

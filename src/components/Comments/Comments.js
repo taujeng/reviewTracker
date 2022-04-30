@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import StarRating from '../StarRating/StarRating';
 import { useLocation } from 'react-router-dom';
-import { Reply, MoreHoriz, RefreshSharp } from '@mui/icons-material';
+import { Reply, MoreHoriz } from '@mui/icons-material';
 import { Link } from 'react-router-dom';
 import './comments.css'
 
