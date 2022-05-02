@@ -1,4 +1,4 @@
-import { render } from '@testing-library/react';
+
 import React, { useEffect, useState } from 'react'
 import Post from '../Post/Post'
 import './body.css'
@@ -6,7 +6,7 @@ import './body.css'
 
 const Body = ({ data }) => {
 
-  const [sortBody, setSortBody] = useState(data);
+  const [displayData, setDisplayData] = useState(data);
 
   // const sortedData = data.sort((a,b) => new Date(b['new_date']) - new Date(a['new_date']));
   // console.log(sortedData)
@@ -16,13 +16,13 @@ const Body = ({ data }) => {
 
 
   function by_Date() {
-    setSortBody(prevValue => {
+    setDisplayData(prevValue => {
       return [...prevValue].sort((a,b) => new Date(b['new_date']) - new Date(a['new_date']));
     })
   }
 
   function by_Stars() {
-    setSortBody(prevValue => {
+    setDisplayData(prevValue => {
       return [...prevValue].sort((a,b) => b.rating - a.rating)
     })
   }
@@ -40,7 +40,7 @@ const Body = ({ data }) => {
     <section className='review-container'>
       <button  onClick={by_Date} style={{display:'block', width:'40px', height:'50px'}}>Recent</button>
       <button  onClick={by_Stars} style={{display:'block', width:'40px', height:'50px'}}>By Rating</button>
-      {sortBody.map((item, index) => 
+      {displayData.map((item, index) => 
         (<Post key={index} details={item} />
       ))}
     </section>
@@ -52,3 +52,5 @@ export default Body;
 // problems. after clicking HELLO ME (works), then STARME (doesn't work), click into
 // a post, then back -> works, BUT THEN if I click HELLO ME again the date is sorted correctly,
 // but the STAR RATING remains the same as STARME. So Graham Hoover's 2 has 5 stars, tabitha's 1 has 5 stars
+
+// after clicking Recent, and then into a post, then backout, you return back to original order
